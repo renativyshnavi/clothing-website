@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MonoStyle Clothing</title>
+  <style>
+    :root {
+      --black: #111;
+      --dark-gray: #222;
+      --gray: #333;
+      --light-gray: #ccc;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--black);
+      color: var(--light-gray);
+    }
+
+    header {
+      background-color: var(--dark-gray);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo h1 {
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: var(--light-gray);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--white);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .hero {
+      background: url('img/2.png') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--light-gray);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .service {
+      background-color: var(--gray);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 300px;
+      flex: 1 1 250px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+    }
+
+    .service h3 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    footer {
+      background-color: var(--dark-gray);
+      color: var(--light-gray);
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: var(--dark-gray);
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 200px;
+        padding: 1rem;
+      }
+
+      nav a {
+        margin: 1rem 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="MonoStyle Logo">
+      <h1>MonoStyle</h1>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Modern Looks in Monochrome</h2>
+      <p>Elevate your wardrobe with timeless black & gray essentials</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2 class="section-title">About Us</h2>
+    <p>
+      At MonoStyle, we believe fashion should be bold, clean, and timeless. 
+      Our black and gray clothing line celebrates minimalism and sophistication, designed for people who want to make a quiet statement. 
+      From streetwear to formal wear, we craft garments that fit your life in any shade.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Personal Styling</h3>
+        <p>Our experts help you build a wardrobe rooted in bold simplicity, tailored to your lifestyle.</p>
+      </div>
+      <div class="service">
+        <h3>Custom Tailoring</h3>
+        <p>Need the perfect fit? We offer alteration and sizing services for all our pieces.</p>
+      </div>
+      <div class="service">
+        <h3>Seasonal Collections</h3>
+        <p>Stay fresh with limited-edition releases crafted for each season's vibe — all in grayscale.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section>
+    <h2 class="section-title">Our Collection</h2>
+    <div class="gallery">
+      <img src="img/3.png" alt="Collection Item 1">
+      <img src="img/4.png" alt="Collection Item 2">
+      <img src="img/5.png" alt="Collection Item 3">
+      <img src="img/2.png" alt="Collection Item 4">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MonoStyle. Designed in black and gray. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
+index.html
+img/
+     logo.png
+     2.png
+     3.png
+     4.png
+     5.png
